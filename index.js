@@ -34,6 +34,13 @@ app.get('/produtos/:nome', (req, res) => {
   res.send(`produto: ${nome}`)
 });
 
+app.get('/filmes/:id/:nome', (req, res) => {
+  const id_filme = req.params.id
+  const nome_filme = req.params.nome
+
+  res.send(`id do filme: ${id_filme} nome do filme: ${nome_filme}`)
+});
+
 app.listen(
     3000, 
     () => console.log(`Servidor em execução`)
