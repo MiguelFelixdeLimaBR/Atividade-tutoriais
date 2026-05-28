@@ -9,6 +9,13 @@ app.get('/sobre', (req, res) => {
   res.send('Este é um exmplo de uma rota com para exibir uma mensagem sobre a aplicação');
 });
 
+app.get('/contato', (req, res) => {
+  res.json({
+    "email": "contato@email.com",
+    "telefone": "(81) 99999-9999"
+  });
+});
+
 app.listen(
     3000, 
     () => console.log(`Servidor em execução`)
