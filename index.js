@@ -29,6 +29,10 @@ app.get('/usuarios/:id', (req, res) => {
   res.send(`usuario ${id}`)
 });
 
+app.get('/produtos/:nome', (req, res) => {
+  const nome = req.params.nome
+  res.send(`produto: ${nome}`)
+});
 
 app.listen(
     3000, 
