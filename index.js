@@ -24,6 +24,12 @@ app.get('/inicio', (req, res) => {
   res.redirect('/');
 });
 
+app.get('/usuarios/:id', (req, res) => {
+  const id = req.params.id
+  res.send(`usuario ${id}`)
+});
+
+
 app.listen(
     3000, 
     () => console.log(`Servidor em execução`)
