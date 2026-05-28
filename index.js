@@ -41,6 +41,11 @@ app.get('/filmes/:id/:nome', (req, res) => {
   res.send(`id do filme: ${id_filme} nome do filme: ${nome_filme}`)
 });
 
+app.get('/buscar', (req, res) => {
+  const nome = req.query.nome
+  res.send(`buscando por: ${nome}`)
+});
+
 app.listen(
     3000, 
     () => console.log(`Servidor em execução`)
