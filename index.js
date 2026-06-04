@@ -17,13 +17,23 @@ app.get('/perfil', (req, res) => {
 });
 
 app.get('/listafilmes', (req, res) => {
+
+    const filmes = [
+        'Interestelar',
+        'Matrix',
+        'Shrek'
+    ];
+
+    let listaFilmes = '';
+
+    filmes.forEach(filme => {
+        listaFilmes += `
+            <li>${filme}</li>
+        `;
+    });
+
     res.render('listafilmes', {
-        filmes: [
-            'Interestelar',
-            'Clube da Luta',
-            'O Senhor dos Anéis',
-            'Matrix'
-        ]
+        listaFilmes
     });
 });
 
@@ -35,12 +45,34 @@ app.get('/usuario', (req, res) => {
 });
 
 app.get('/filmes', (req, res) => {
+
+    const filmes = [
+        {
+            nome: 'Interestelar',
+            ano: 2014
+        },
+        {
+            nome: 'Matrix',
+            ano: 1999
+        },
+        {
+            nome: 'O poderoso chefão',
+            ano: 1972
+        }
+    ];
+
+    let listaFilmes = '';
+
+    filmes.forEach(filme => {
+        listaFilmes += `
+            <li>
+                ${filme.nome} (${filme.ano})
+            </li>
+        `;
+    });
+
     res.render('filmes', {
-        filmes: [
-            { nome: 'Interestelar', ano: 2014 },
-            { nome: 'Matrix', ano: 1999 },
-            { nome: 'O poderoso chefão', ano: 1972 }
-        ]
+        listaFilmes
     });
 });
 
