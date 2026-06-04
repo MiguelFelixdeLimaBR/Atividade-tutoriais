@@ -16,8 +16,8 @@ app.get('/perfil', (req, res) => {
     });
 });
 
-app.get('/filmes', (req, res) => {
-    res.render('filmes', {
+app.get('/listafilmes', (req, res) => {
+    res.render('listafilmes', {
         filmes: [
             'Interestelar',
             'Clube da Luta',
@@ -31,6 +31,16 @@ app.get('/usuario', (req, res) => {
     res.render('usuario', {
         logado: true,
         admin: false
+    });
+});
+
+app.get('/filmes', (req, res) => {
+    res.render('filmes', {
+        filmes: [
+            { nome: 'Interestelar', ano: 2014 },
+            { nome: 'Matrix', ano: 1999 },
+            { nome: 'O poderoso chefão', ano: 1972 }
+        ]
     });
 });
 

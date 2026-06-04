@@ -2,14 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Filmes</title>
+    <title>Lista de Filmes</title>
 </head>
 <body>
-    <h1>Filmes</h1>
+    <h1>Lista de Filmes</h1>
 
     <ul>
         {{#each filmes}}
-            <li>{{nome}} - {{ano}}</li>
+            <li>{{this}}</li>
         {{/each}}
     </ul>
 </body>
