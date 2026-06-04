@@ -27,6 +27,13 @@ app.get('/filmes', (req, res) => {
     });
 });
 
+app.get('/usuario', (req, res) => {
+    res.render('usuario', {
+        logado: true,
+        admin: false
+    });
+});
+
 app.get('/', (req, res) => {
     res.send('Bem-vindo ao sistema');
 });
