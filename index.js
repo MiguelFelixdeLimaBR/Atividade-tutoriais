@@ -5,8 +5,12 @@ const app = express();
 app.engine('handlebars', exphbs.engine({defaultLayout:false}));
 app.set('view engine', 'handlebars');
 
+app.get('/home', (req, res) => {
+    res.render('home');
+});
+
 app.get('/', (req, res) => {
-  res.send('Bem-vindo ao sistema');
+    res.send('Bem-vindo ao sistema');
 });
 
 app.get('/sobre', (req, res) => {
