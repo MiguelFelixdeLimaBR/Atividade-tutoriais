@@ -16,6 +16,17 @@ app.get('/perfil', (req, res) => {
     });
 });
 
+app.get('/filmes', (req, res) => {
+    res.render('filmes', {
+        filmes: [
+            'Interestelar',
+            'Clube da Luta',
+            'O Senhor dos Anéis',
+            'Matrix'
+        ]
+    });
+});
+
 app.get('/', (req, res) => {
     res.send('Bem-vindo ao sistema');
 });
