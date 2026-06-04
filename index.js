@@ -9,6 +9,13 @@ app.get('/home', (req, res) => {
     res.render('home');
 });
 
+app.get('/perfil', (req, res) => {
+    res.render('perfil', {
+        nome: 'Miguel',
+        idade: 20
+    });
+});
+
 app.get('/', (req, res) => {
     res.send('Bem-vindo ao sistema');
 });
