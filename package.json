@@ -1,5 +1,5 @@
 {
-  "name": "dv-2705",
+  "name": "dvw---exercicio1706",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,8 @@
   "type": "commonjs",
   "dependencies": {
     "express": "^5.2.1",
-    "express-handlebars": "^9.0.1"
+    "express-handlebars": "^9.0.1",
+    "sequelize": "^6.37.8",
+    "sqlite3": "^6.0.1"
   }
 }
