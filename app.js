@@ -46,13 +46,8 @@ app.get(
     '/exercicio5',
     async (req, res) => {
         const produto = await Produto.findByPk(1, { raw: true });
-
-        if (produto) {
-            console.log('Nome:', produto.nome);
-            console.log('Preço:', produto.preco);
-        } else {
-            console.log('Produto não encontrado');
-        }
+        console.log('Nome:', produto.nome);
+        console.log('Preço:', produto.preco);
 
         res.send('ok');
     }
@@ -62,15 +57,9 @@ app.get(
     '/exercicio6',
     async (req, res) => {
         const produto = await Produto.findByPk(1);
-
-        if (produto) {
-            produto.preco = 99.99;
-            await produto.save();
-
-            console.log('Preço atualizado com sucesso!');
-        } else {
-            console.log('Produto não encontrado.');
-        }
+        produto.preco = 99.99;
+        await produto.save();
+        console.log('Preço atualizado com sucesso!');
 
         res.send('ok');
     }
@@ -79,15 +68,10 @@ app.get(
 app.get(
     '/exercicio7',
     async (req, res) => {
-        const produto = await Produto.findByPk(1);
-
-        if (produto) {
-            await produto.destroy();
-            console.log('Produto removido com sucesso!');
-        } else {
-            console.log('Produto não encontrado.');
-        }
-
+        const produto = await Produto.findByPk(14);
+        await produto.destroy();
+        console.log('Produto removido com sucesso!');
+        
         const produtos = await Produto.findAll({ raw: true });
         console.log(produtos);
 
