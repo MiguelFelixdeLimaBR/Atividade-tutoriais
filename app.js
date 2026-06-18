@@ -15,6 +15,9 @@ app.set(
     'handlebars'
 );
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.get('/', (req, res) => {
     res.render('home');
 });
@@ -86,6 +89,16 @@ app.get(
         console.log(produtos);
 
         res.json(produtos);
+    }
+);
+
+app.post(
+    '/produtos',
+    async (req, res) => {
+        const { nome, preco } = req.body;
+        const produto = await Produto.create({ nome, preco });
+        console.log('Produto criado com sucesso!');
+        res.json(produto);
     }
 );
 
