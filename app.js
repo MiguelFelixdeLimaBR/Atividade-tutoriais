@@ -79,6 +79,16 @@ app.get(
     }
 );
 
+app.get(
+    '/produtos',
+    async (req, res) => {
+        const produtos = await Produto.findAll({ raw: true });
+        console.log(produtos);
+
+        res.json(produtos);
+    }
+);
+
 async function conectarBD() {
     try{
         await sequelize.sync();
