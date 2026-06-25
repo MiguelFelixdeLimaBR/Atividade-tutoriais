@@ -102,6 +102,18 @@ app.post(
     }
 );
 
+app.get(
+    '/produtos/delete/:id',
+    async (req, res) => {
+        const { id } = req.params;
+        const produto = await Produto.findByPk(id);
+
+        await produto.destroy();
+        console.log(`Produto ${id} removido com sucesso!`);
+        res.send('Produto removido com sucesso');
+    }
+);
+
 async function conectarBD() {
     try{
         await sequelize.sync();
