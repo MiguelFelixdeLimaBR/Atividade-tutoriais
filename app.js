@@ -135,6 +135,23 @@ app.get(
     }
 );
 
+app.get(
+    '/usuarios/cadastrar',
+    (req, res) => {
+        res.render('cadastrarUsuario');
+    }
+);
+
+app.post(
+    '/usuarios',
+    async (req, res) => {
+        const { nome, email, idade } = req.body;
+        await Usuario.create({ nome, email, idade });
+        console.log('Usuário cadastrado:', nome, email, idade);
+        res.redirect('/usuarios');
+    }
+);
+
 async function conectarBD() {
     try{
         await sequelize.sync();
