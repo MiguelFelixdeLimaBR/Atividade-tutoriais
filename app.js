@@ -114,6 +114,27 @@ app.get(
     }
 );
 
+app.get(
+    '/usuarios',
+    async (req, res) => {
+        const usuarios = await Usuario.findAll({ raw: true });
+        console.log('Usuários encontrados:', usuarios.length);
+        console.log(usuarios);
+
+        const listaUsuarios = usuarios.length
+            ? usuarios
+                .map(usuario => `
+                    <li>
+                        <strong>Nome:</strong> ${usuario.nome} | 
+                        <strong>E-mail:</strong> ${usuario.email}
+                    </li>`)
+                .join('')
+            : '<li>Nenhum usuário encontrado</li>';
+
+        res.render('usuarios', { listaUsuarios });
+    }
+);
+
 async function conectarBD() {
     try{
         await sequelize.sync();
