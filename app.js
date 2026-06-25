@@ -127,6 +127,7 @@ app.get(
                     <li>
                         <strong>Nome:</strong> ${usuario.nome} | 
                         <strong>E-mail:</strong> ${usuario.email}
+                        <button type="button" onclick="window.location.href='/usuarios/delete/${usuario.id}'">Remover</button>
                     </li>`)
                 .join('')
             : '<li>Nenhum usuário encontrado</li>';
@@ -148,6 +149,22 @@ app.post(
         const { nome, email, idade } = req.body;
         await Usuario.create({ nome, email, idade });
         console.log('Usuário cadastrado:', nome, email, idade);
+        res.redirect('/usuarios');
+    }
+);
+
+app.get(
+    '/usuarios/delete/:id',
+    async (req, res) => {
+        const { id } = req.params;
+        const usuario = await Usuario.findByPk(id);
+
+        if (!usuario) {
+            return res.status(404).send('Usuário não encontrado');
+        }
+
+        await usuario.destroy();
+        console.log(`Usuário ${id} removido com sucesso!`);
         res.redirect('/usuarios');
     }
 );
